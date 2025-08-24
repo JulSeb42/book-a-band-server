@@ -1,0 +1,19 @@
+import { http } from "./http-common"
+import { generateServerRoute } from "utils"
+import type { SERVER_PATHS } from "./server-paths"
+import type { ApiResponse, {{>pascalName}} } from "types"
+
+type PATHS = keyof typeof SERVER_PATHS.{{ constantCase name }}
+
+const generateRoute = (route: Exclude<PATHS, "ROOT">, id?: string) =>
+	generateServerRoute("{{ constantCase name }}", route, id)
+
+class {{>pascalName}}Service {
+	all{{>pascalName}}s = async (): ApiResponse<Array<{{>pascalName}}>> =>
+		await http.get(generateRoute("ALL_{{ constantCase name }}S"))
+
+	get{{>pascalName}} = async (id: string): ApiResponse<{{>pascalName}}> =>
+		await http.get(generateRoute("GET_{{ constantCase name }}", id))
+}
+
+export const {{ camelCase name }}Service = new {{>pascalName}}Service()

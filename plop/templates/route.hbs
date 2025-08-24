@@ -1,0 +1,21 @@
+import { Router } from "express"
+import { {{>pascalName}}Model } from "models"
+import { SERVER_PATHS } from "utils"
+
+const router = Router()
+
+const { {{ constantCase name }}: PATHS } = SERVER_PATHS
+
+router.get(PATHS.ALL_{{ constantCase name }}S, async (_, res, next) => {
+	return await {{>pascalName}}Model.find()
+		.then({{ camelCase name }}FromDb => res.status(200).json({{ camelCase name }}FromDb))
+		.catch(err => next(err))
+})
+
+router.get(PATHS.GET_{{ constantCase name }}(), async (req, res, next) => {
+	return await {{>pascalName}}Model.findById(req.params.id)
+		.then({{ camelCase name }}FromDb => res.status(200).json({{ camelCase name }}FromDb))
+		.catch(err => next(err))
+})
+
+export default router

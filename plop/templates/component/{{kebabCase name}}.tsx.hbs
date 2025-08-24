@@ -1,0 +1,10 @@
+import { clsx } from "@julseb-lib/react"
+import type { I{{>pascalName }} } from "./types"
+
+export const {{>pascalName }}: FC<I{{>pascalName }}> = ({ {{#if ref }}ref,{{/if}} }) => {
+    return (
+        <{{ lowerCase tag }} className={clsx("", "{{>kebabName}}")} {{#if ref }} ref={ref}{{/if}}>
+            
+        </{{ lowerCase tag }}>
+    )
+}

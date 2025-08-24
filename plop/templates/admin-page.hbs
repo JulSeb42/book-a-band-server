@@ -1,0 +1,15 @@
+import { createFileRoute } from "@tanstack/react-router"
+import { Text } from "@julseb-lib/react"
+import { Page } from "components"
+
+const Admin{{>pascalName}}: FC = () => {
+	return (
+		<Page title="{{ title }}" type="{{ type }}">
+			<Text tag="h1">{{ title }}</Text>
+        </Page>
+	)
+}
+
+export const Route = createFileRoute("/admin/{{>kebabName}}")({
+	component: Admin{{>pascalName}},
+})
