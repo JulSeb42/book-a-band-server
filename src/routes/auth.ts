@@ -6,6 +6,7 @@ import {
 	emailRegex,
 	getRandomString,
 	getRandomAvatar,
+	slugify,
 } from "@julseb-lib/utils"
 import { UserModel } from "../models"
 import { isAuthenticated } from "../middleware"
@@ -69,6 +70,7 @@ router.post(PATHS.SIGNUP, async (req, res, next) => {
 				verified: false,
 				verifyToken,
 				avatar: getRandomAvatar(),
+				slug: slugify(fullName),
 			}).then(createdUser => {
 				sendMail(
 					email,

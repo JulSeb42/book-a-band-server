@@ -28,6 +28,8 @@ io.on("connection", socket => {
 							sender,
 							conversationId,
 							receiver,
+							date: getToday(),
+							time: getTimeNow(),
 						},
 					},
 				},

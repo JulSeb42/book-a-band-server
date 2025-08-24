@@ -17,6 +17,16 @@ router.put(PATHS.EDIT_ROLE(), async (req, res, next) => {
 		.catch(err => next(err))
 })
 
+router.put(PATHS.APPROVE_ARTIST(), async (req, res, next) => {
+	return await UserModel.findByIdAndUpdate(
+		req.params.id,
+		{ approved: req.body.approved },
+		{ new: true },
+	)
+		.then(updatedUser => res.status(200).json(updatedUser))
+		.catch(err => next(err))
+})
+
 router.post(PATHS.RESET_PASSWORD(), async (req, res, next) => {
 	const { id } = req.params
 

@@ -40,16 +40,30 @@ router.get(PATHS.ALL_ARTISTS, async (req, res, next) => {
 					: [],
 			}))
 
-			if (approved === "true") {
-				const approvedArtists = filteredArtists.filter(
-					artist => artist.approved === true,
-				)
+			if (approved) {
+				if (approved === "true") {
+					const approvedArtists = filteredArtists.filter(
+						artist => artist.approved === true,
+					)
 
-				return res.status(200).json(approvedArtists)
+					return res.status(200).json(approvedArtists)
+				} else if (approved === "false") {
+					const approvedArtists = filteredArtists.filter(
+						artist => artist.approved === false,
+					)
+
+					return res.status(200).json(approvedArtists)
+				}
 			}
 
 			return res.status(200).json(filteredArtists)
 		})
+		.catch(err => next(err))
+})
+
+router.get(PATHS.ALL_ADMINS, async (_, res, next) => {
+	return await UserModel.find({ role: "admin" })
+		.then(found => res.status(200).json(found))
 		.catch(err => next(err))
 })
 

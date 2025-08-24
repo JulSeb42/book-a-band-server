@@ -25,6 +25,7 @@ export const SERVER_PATHS = {
 		ROOT: SERVER_PATH_ROOTS.USERS,
 		ALL_USERS: "/all-users",
 		ALL_ARTISTS: "/artists",
+		ALL_ADMINS: "/admins",
 		GET_USER: (id = ":id") => `/user/${id}`,
 		ARTIST_BY_SLUG: (slug = ":slug") => `/artist/${slug}`,
 		EDIT_ACCOUNT: (id = ":id") => `/edit-account/${id}`,
