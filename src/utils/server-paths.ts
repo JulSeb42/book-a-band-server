@@ -36,6 +36,7 @@ export const SERVER_PATHS = {
 	},
 	ADMIN: {
 		ROOT: SERVER_PATH_ROOTS.ADMIN,
+		APPROVE_ARTIST: (id = ":id") => `/approve-artist/${id}`,
 		EDIT_ROLE: (id = ":id") => `/edit-role/${id}`,
 		RESET_PASSWORD: (id = ":id") => `/reset-password/${id}`,
 		DELETE_USER: (id = ":id") => `/delete-user/${id}`,
