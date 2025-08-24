@@ -20,7 +20,7 @@
 	"author": "",
 	"license": "MIT",
 	"dependencies": {
-		"@julseb-lib/utils": "^0.0.19",
+		"@julseb-lib/utils": "^0.0.20",
 		"bcryptjs": "^3.0.2",
 		"cookie-parser": "^1.4.7",
 		"cors": "^2.8.5",
