@@ -1,14 +1,15 @@
+import "dotenv/config"
 import { SITE_DATA } from "./site-data"
 import type { User } from "types"
 
 export const COMMON_TEXTS = {
 	EMAIL_SIGNUP_TITLE: `Verify your account on ${SITE_DATA.NAME}`,
 	EMAIL_SIGNUP_BODY: (user: User, token: string) =>
-		`Hello ${user.fullName},<br /><br />Thank you for creating your account on ${SITE_DATA.NAME}! <a href="${import.meta.env.ORIGIN}/verify/${token}/${user._id}">Click here to verify your account.</a>.`,
+		`Hello ${user.fullName},<br /><br />Thank you for creating your account on ${SITE_DATA.NAME}! <a href="${process.env.ORIGIN}/verify/${token}/${user._id}">Click here to verify your account.</a>.`,
 
 	EMAIL_RESET_PASSWORD_TITLE: `Reset your password on ${SITE_DATA.NAME}`,
 	EMAIL_RESET_PASSWORD_BODY: (user: User, token: string) =>
-		`Hello ${user.fullName},<br /><br />To reset your password, <a href="${import.meta.env.ORIGIN}/reset-password/${token}/${user._id}">click here</a>.`,
+		`Hello ${user.fullName},<br /><br />To reset your password, <a href="${process.env.ORIGIN}/reset-password/${token}/${user._id}">click here</a>.`,
 
 	USER_DELETED: "User deleted.",
 
