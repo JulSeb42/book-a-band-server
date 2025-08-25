@@ -15,6 +15,8 @@ export type Conversation = {
 	readUser1: boolean
 	readUser2: boolean
 	messages: Array<Message>
+	createdAt: Date
+	updatedAt: Date
 }
 
 export type NewConversationFormData = {

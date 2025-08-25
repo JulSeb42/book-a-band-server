@@ -68,6 +68,11 @@ router.get(PATHS.GET_USER_CONVERSATIONS(), async (req, res, next) => {
 					msg => (msg.body = decrypt(msg.body)),
 				),
 			)
+
+			foundConversations.sort((a, b) =>
+				new Date(a.updatedAt) > new Date(b.updatedAt) ? -1 : 0,
+			)
+
 			return res.status(200).json(foundConversations)
 		})
 		.catch(err => next(err))
